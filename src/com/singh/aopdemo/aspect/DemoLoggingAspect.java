@@ -17,6 +17,12 @@ public class DemoLoggingAspect {
 		System.out.println(getClass() + ": executing @Before advice on addAccount()");
 	}
 	
+	@Before("execution(* add*(com.singh.aopdemo.entity.Account))")
+	public void beforeAddAccountWithAccountParamAdvice() {
+		System.out.println(getClass() + ": executing @Before advice on addAccount(Account account)");
+	}
+
+	
 	@AfterReturning("execution(* add*())")
 	public void afterReturningAddAccountAdvice() {
 		System.out.println(getClass() + ": executing @AfterReturning advice on addAccount()");

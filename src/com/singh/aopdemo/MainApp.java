@@ -1,11 +1,10 @@
 package com.singh.aopdemo;
 
-import java.io.Closeable;
-
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.singh.aopdemo.dao.AccountDAO;
 import com.singh.aopdemo.dao.MembershipDAO;
+import com.singh.aopdemo.entity.Account;
 
 public class MainApp {
 
@@ -17,9 +16,11 @@ public class MainApp {
 			// get bean from spring container
 			AccountDAO accountDAO = context.getBean("accountDAO", AccountDAO.class);
 			MembershipDAO membershipDAO = context.getBean("membershipDAO", MembershipDAO.class);
-
+			
 			// call the business method
+			Account account = new Account();
 			accountDAO.addAccount();
+			accountDAO.addAccount(account);
 			membershipDAO.addMember();
 
 			// close the context
