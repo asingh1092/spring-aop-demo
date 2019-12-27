@@ -21,9 +21,19 @@ public class DemoLoggingAspect {
 	public void beforeAddAccountWithAccountParamAdvice() {
 		System.out.println(getClass() + ": executing @Before advice on addAccount(Account account)");
 	}
+	
+	@Before("execution(* add*(com.singh.aopdemo.entity.Account, ..))")
+	public void beforeAddAccountWithAccountBooleanParamAdvice() {
+		System.out.println(getClass() + ": executing @Before advice on addAccount(Account account, boolean vipFlag)");
+	}
+	
+	@Before("execution(* com.singh.aopdemo.dao.*.*(..))")
+	public void beforeAddAccountWithAnyParamAdvice() {
+		System.out.println(getClass() + ": executing @Before advice on any dao class and method");
+	}
 
 	
-	@AfterReturning("execution(* add*())")
+	@AfterReturning("execution(* add*()))")
 	public void afterReturningAddAccountAdvice() {
 		System.out.println(getClass() + ": executing @AfterReturning advice on addAccount()");
 	}

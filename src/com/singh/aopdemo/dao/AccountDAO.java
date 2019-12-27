@@ -15,4 +15,12 @@ public class AccountDAO {
 		System.out.println(getClass() + " : doing DB work with Account parameter");
 	}
 	
+	public void addAccount(Account account, boolean vipFlag) {
+		System.out.println(getClass() + " : doing DB work with Account and boolean parameters");
+	}
+	
+	public boolean doWork() {
+		System.out.println(getClass() + " : doWork()");
+		return false;
+	}
 }

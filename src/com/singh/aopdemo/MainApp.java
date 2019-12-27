@@ -21,7 +21,10 @@ public class MainApp {
 			Account account = new Account();
 			accountDAO.addAccount();
 			accountDAO.addAccount(account);
+			accountDAO.addAccount(account, true);
+			accountDAO.doWork();
 			membershipDAO.addMember();
+			membershipDAO.goToSleep();
 
 			// close the context
 		} catch (Exception e) {
